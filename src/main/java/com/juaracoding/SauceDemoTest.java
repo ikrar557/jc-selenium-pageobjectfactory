@@ -27,19 +27,42 @@ public class SauceDemoTest {
         }
     }
 
-        public static void performCheckUserLogin(WebDriver driver) throws InterruptedException {
+    public static void performCheckUserLogin(WebDriver driver) throws InterruptedException {
         String username = "standard_user";
+        String failedUsername = "standart_user";
         String password = "secret_sauce";
 
         openBrowser(driver);
-        //      Test Case Positive Login
+
         WebElement usernameInput = driver.findElement(By.name("user-name"));
         WebElement passwordInput = driver.findElement(By.name("password"));
         WebElement submitButton = driver.findElement(By.name("login-button"));
 
+        //      Test Case Negative Failed Login
+        Thread.sleep(1000);
+        usernameInput.sendKeys(failedUsername);
+
+        Thread.sleep(1000);
+        passwordInput.sendKeys(password);
+
+        Thread.sleep(1000);
+        submitButton.click();
+
+        //      Validation Failed Login
+        WebElement errorLoginElement = driver.findElement(By.xpath("//h3[contains(.,'Epic sadface: Username and password do not match any user in this service')]"));
+        String errorLoginText = errorLoginElement.getText();
+        if(errorLoginText.equals("Epic sadface: Username and password do not match any user in this service")){
+            System.out.println("Passes : Wrong Credentials");
+        } else {
+            System.out.println("Failed : User still able to login");
+        }
+
+        //      Test Case Positive Login
+        usernameInput.clear();
         Thread.sleep(1000);
         usernameInput.sendKeys(username);
 
+        passwordInput.clear();
         Thread.sleep(1000);
         passwordInput.sendKeys(password);
 
@@ -48,12 +71,36 @@ public class SauceDemoTest {
 
         Thread.sleep(2000);
 
-        // Validation Login
+        //      Validation Positive Login
         homepageValidation(driver);
-
     }
 
-    public static void performAddProduct(WebDriver driver) throws InterruptedException {
+    public static void performUserLogout(WebDriver driver) throws InterruptedException {
+        WebElement sideBar = driver.findElement(By.id("react-burger-menu-btn"));
+        // Test Case Positive Logout
+        Thread.sleep(1000);
+        sideBar.click();
+
+        WebElement logoutButton = driver.findElement(By.id("logout_sidebar_link"));
+
+        Thread.sleep(1000);
+        logoutButton.click();
+
+        Thread.sleep(3000);
+
+        //  Validation Logout Action
+        By usernameInput = By.name("user-name");
+
+        if (!driver.findElements(usernameInput).isEmpty()) {
+            System.out.println("Passes : Back to login page");
+        } else {
+            System.out.println("Failed : Error");
+        }
+
+        System.out.println("Closing the browser");
+    }
+
+    public static void performUserShopping(WebDriver driver) throws InterruptedException {
         String firstName = "Ikrar";
         String lastName = "Bagaskara";
         String postalCode = "57474";
@@ -125,9 +172,6 @@ public class SauceDemoTest {
         //      Validation Back to HomePage
         homepageValidation(driver);
 
-        Thread.sleep(3000);
-        System.out.println("Closing the browser");
-
-
+        Thread.sleep(2000);
     }
 }

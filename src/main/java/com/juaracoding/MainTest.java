@@ -3,8 +3,7 @@ package com.juaracoding;
 import org.openqa.selenium.WebDriver;
 
 import static com.juaracoding.ConnectBrowsers.setupChromeDriver;
-import static com.juaracoding.SauceDemoTest.performAddProduct;
-import static com.juaracoding.SauceDemoTest.performCheckUserLogin;
+import static com.juaracoding.SauceDemoTest.*;
 
 public class MainTest {
 
@@ -12,7 +11,8 @@ public class MainTest {
         // Setup Chrome
         WebDriver chromeDriver = setupChromeDriver();
         performCheckUserLogin(chromeDriver);
-        performAddProduct(chromeDriver);
+        performUserShopping(chromeDriver);
+        performUserLogout(chromeDriver);
         chromeDriver.quit();
     }
 }
