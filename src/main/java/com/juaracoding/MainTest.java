@@ -11,7 +11,8 @@ public class MainTest {
         // Setup Chrome
         WebDriver chromeDriver = setupChromeDriver();
         performCheckUserLogin(chromeDriver);
-        performUserShopping(chromeDriver);
+        performUserAddProduct(chromeDriver);
+        performUserCheckout(chromeDriver);
         performUserLogout(chromeDriver);
         chromeDriver.quit();
     }

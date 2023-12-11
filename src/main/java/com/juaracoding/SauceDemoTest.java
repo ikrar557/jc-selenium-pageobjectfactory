@@ -8,6 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 public class SauceDemoTest {
     static String sauceDemoUrl = "https://www.saucedemo.com";
+    static String firstName = "Ikrar";
+    static String lastName = "Bagaskara";
+    static String postalCode = "57474";
 
     public static void openBrowser(WebDriver driver) throws InterruptedException {
         driver.manage().window().maximize();
@@ -100,10 +103,7 @@ public class SauceDemoTest {
         System.out.println("Closing the browser");
     }
 
-    public static void performUserShopping(WebDriver driver) throws InterruptedException {
-        String firstName = "Ikrar";
-        String lastName = "Bagaskara";
-        String postalCode = "57474";
+    public static void performUserAddProduct(WebDriver driver) throws  InterruptedException {
 
         WebElement addProductSauceBackpack = driver.findElement(By.name("add-to-cart-sauce-labs-backpack"));
         WebElement shoppingCartLink = driver.findElement(By.xpath("//div[@id='shopping_cart_container']/a"));
@@ -118,10 +118,13 @@ public class SauceDemoTest {
         WebElement backpackElement = driver.findElement(By.xpath("//a[@id='item_4_title_link']/div"));
         String backpackElementText = backpackElement.getText();
         if(backpackElementText.equals("Sauce Labs Backpack")){
-            System.out.println("Passes : Add the product");
+            System.out.println("Passes : Add the Sauce Labs Backpack");
         } else {
-            System.out.println("Failed : Add the product");
+            System.out.println("Failed : Add the Sauce Labs Backpack");
         }
+
+    }
+    public static void performUserCheckout(WebDriver driver) throws InterruptedException {
 
         WebElement checkout = driver.findElement(By.name("checkout"));
 
