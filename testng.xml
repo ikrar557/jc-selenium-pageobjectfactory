@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Ikrar/IdeaProjects/juaracoding-posttest17/src/test/java/com/juaracoding/LoginTest.java">
+        <classes>
+            <class name="com.juaracoding.LoginTest">
+                <methods>
+                    <include name="testBlankLogin"/>
+                    <include name="testInvalidLogin"/>
+                    <include name="testValidLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Ikrar/IdeaProjects/juaracoding-posttest17/src/test/java/com/juaracoding/RecruitmentTest.java">
+        <classes>
+            <class name="com.juaracoding.RecruitmentTest">
+                <methods>
+                    <include name="testInputFirstName"/>
+                    <include name="testInputMiddleName"/>
+                    <include name="testInputLastName"/>
+                    <include name="testInputVacancy"/>
+                    <include name="testInputEmail"/>
+                    <include name="testInputContactNumber"/>
+                    <include name="testInputResume"/>
+                    <include name="testInputKeyword"/>
+                    <include name="testDateOfApplication"/>
+                    <include name="testInputNotes"/>
+                    <include name="testCheckBoxConsentData"/>
+                    <include name="submitCandidateForm"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
