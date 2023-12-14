@@ -20,11 +20,11 @@ public class MainTest {
         // Call method from pages
         LoginPage loginPage = new LoginPage();
 
-//        loginPage.performUserBlankLogin("", "");
-//        DriverSingleton.delay(2);
-//
-//        loginPage.performUserInvalidLogin("Adminn", "admin123");
-//        System.out.println(loginPage.getTxtInvalidLogin());
+        loginPage.performUserBlankLogin("", "");
+        DriverSingleton.delay(2);
+
+        loginPage.performUserInvalidLogin("Adminn", "admin123");
+        System.out.println(loginPage.getTxtInvalidLogin());
 
         loginPage.performUserLogin("Admin", "admin123");
         System.out.println(loginPage.getTxtDashboard());
@@ -32,21 +32,21 @@ public class MainTest {
         RecruitmentPage recruitmentPage = new RecruitmentPage();
         recruitmentPage.navigateToRecruitmentPage();
         recruitmentPage.performAddCandidate();
-//        recruitmentPage.fillFirstName("Anggun");
-//        recruitmentPage.fillMiddleName("Berlian");
-//        recruitmentPage.fillLastName("Agustina");
-//        recruitmentPage.selectVacancy();
-//        recruitmentPage.fillEmailField("ikrarb95@gmail.com");
-//        recruitmentPage.fillContactNumber("081393333818");
-//        recruitmentPage.chooseResume("C:\\MyTools\\example.txt");
-//        recruitmentPage.fillKeyword("Juara Coding");
-//        recruitmentPage.chooseDateOfApplicant("2001-06-23");
-//        recruitmentPage.fillNotes("Quality Control");
+        recruitmentPage.fillFirstName("Anggun");
+        recruitmentPage.fillMiddleName("Berlian");
+        recruitmentPage.fillLastName("Agustina");
+        recruitmentPage.selectVacancy();
+        recruitmentPage.fillEmailField("ikrarb95@gmail.com");
+        recruitmentPage.fillContactNumber("081393333818");
+        recruitmentPage.chooseResume("C:\\MyTools\\example.txt");
+        recruitmentPage.fillKeyword("Juara Coding");
+        recruitmentPage.chooseDateOfApplicant("2001-06-23");
+        recruitmentPage.fillNotes("Quality Control");
         recruitmentPage.checkBoxConsentData();
         System.out.println(recruitmentPage.isConsentDataChecked());
-//        recruitmentPage.submitData();
+        recruitmentPage.submitData();
 
-        DriverSingleton.delay(3);
+        DriverSingleton.delay(5);
         loginPage.performUserLogout();
 
         DriverSingleton.delay(3);
